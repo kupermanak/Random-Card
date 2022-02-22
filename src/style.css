@@ -1,1 +1,27 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+.altodiv {
+  height: 166px;
+}
+
+.sizeNumber {
+  font-size: 80px;
+}
+
+.colorRed {
+  color: red;
+}
+
+.colorBlack {
+  color: black;
+}
+/* spade {
+  color: red;
+}
+club {
+}
+.heart {
+  color: red;
+}
+diamond {
+} */
