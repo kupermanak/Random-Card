@@ -11,7 +11,7 @@ window.onload = function() {
   const button = document.querySelector("#button");
   const type = document.querySelectorAll(".heart");
   const number = document.querySelector(".number");
-  let naipes = document.querySelector("#naipes");
+  const color = document.querySelector("#naipes");
 
   function randomType() {
     let tipo;
@@ -25,9 +25,10 @@ window.onload = function() {
     } else {
       tipo = "♣";
     }
-    console.log(random, tipo);
     return tipo;
   }
+
+  randomType();
 
   function randomNumber() {
     let random = Math.floor(Math.random() * (13 - 1) + 1);
@@ -40,19 +41,24 @@ window.onload = function() {
     } else if (random == 12) {
       random = "K";
     }
+    console.log(random);
     return random;
   }
 
-  function randomColor() {
-    let random12 = Math.random() * 2;
-    let random = Math.floor(random12 + 1);
-    if (random == 1) {
-      random = "red";
-    } else if (random == 2) {
-      random = "black";
+  let cardPic = randomType();
+  console.log(cardPic);
+  function changeColor(cardPic) {
+    let newColor;
+    if (cardPic === "♠" || cardPic === "♣") {
+      newColor = "black";
+    } else {
+      newColor = "red";
     }
-    return random;
+    console.log(newColor);
+    return newColor;
   }
+
+  changeColor();
 
   button.addEventListener("click", () => {
     let simbolo = randomType();
@@ -61,11 +67,7 @@ window.onload = function() {
     });
     let cardNumber = randomNumber();
     number.innerHTML = cardNumber;
-    let colores = randomColor();
-    console.log(colores);
-    naipes.style.color = colores;
-    // let naipes2 = document.querySelector("#naipes");
-    // console.log(naipes2);
-    // naipes2.classList.add("colorBlack");
+    let colores = changeColor(simbolo);
+    color.style.color = colores;
   });
 };
